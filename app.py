@@ -88,6 +88,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         html_content = html_content.replace('{random_number}', str(random_number))
         self.wfile.write(html_content.encode())
 
+
+# Open the webpage in Chrome automatically
+def open_webpage():
+    webbrowser.open('http://localhost:8000/main.html')
+
 # Run the server
 def run():
     server_address = ('', 8000)
@@ -95,4 +100,7 @@ def run():
     print('Starting server...')
     httpd.serve_forever()
 
-run()
+# Start the server and open the webpage
+if __name__ == '__main__':
+    run()
+    open_webpage()
