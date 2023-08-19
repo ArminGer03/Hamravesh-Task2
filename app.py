@@ -12,12 +12,48 @@ class RequestHandler(BaseHTTPRequestHandler):
                 html_content = file.read()
 
             self.wfile.write(html_content.encode())
+        elif self.path == '/main.html':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+
+            with open('main.html', 'r') as file:
+                html_content = file.read()
+
+            self.wfile.write(html_content.encode())
+        elif self.path == '/skills.html':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+
+            with open('skills.html', 'r') as file:
+                html_content = file.read()
+
+            self.wfile.write(html_content.encode())
+        elif self.path == '/achievements.html':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+
+            with open('achievements.html', 'r') as file:
+                html_content = file.read()
+
+            self.wfile.write(html_content.encode())
         elif self.path == '/logo.png':
             self.send_response(200)
             self.send_header('Content-type', 'image/png')
             self.end_headers()
 
             with open('logo.png', 'rb') as file:
+                image_data = file.read()
+
+            self.wfile.write(image_data)
+        elif self.path == '/prof.jpeg':
+            self.send_response(200)
+            self.send_header('Content-type', 'image/jpeg')
+            self.end_headers()
+
+            with open('prof.jpeg', 'rb') as file:
                 image_data = file.read()
 
             self.wfile.write(image_data)
